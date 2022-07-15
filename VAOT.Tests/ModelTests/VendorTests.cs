@@ -1,12 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using //ToDoList.Models;
+using VAOT.Models;
 using System.Collections.Generic;
 using System;
 
-namespace //ToDoList.Tests
+namespace VAOT.Tests
 {
   [TestClass]
-  public class //ItemTests : IDisposable
+  public class //VendorTests : IDisposable
   {
 
     //public void Dispose()

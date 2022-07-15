@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Name of the project\Name of the folder.csproj" />  
+    <ProjectReference Include="..\VAOT\VAOT.csproj" />  
   </ItemGroup>
 
 </Project>
