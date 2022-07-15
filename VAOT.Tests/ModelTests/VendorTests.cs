@@ -6,12 +6,12 @@ using System;
 namespace VAOT.Tests
 {
     [TestClass]
-    public class VendorTests //: IDisposable
+    public class VendorTests : IDisposable
     {
-        // public void Dispose()
-        // {
-        // Vendor.ClearAll();
-        // }
+        public void Dispose()
+        {
+            Vendor.ClearAll();
+        }
 
         [TestMethod]
         public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
@@ -63,6 +63,16 @@ namespace VAOT.Tests
         public void GetAll_ReturnsEmptyList_VendorList()
         {
             List<Vendor> newList = new List<Vendor> { };
+            List<Vendor> result = Vendor.GetAll();
+            CollectionAssert.AreEqual(newList, result);
+        }
+
+        [TestMethod]
+        public void GetAll_ReturnsVendors_VendorList()
+        {
+            Vendor newVendor1 = new Vendor("Vendor's Name1", "Vendor's description");
+            Vendor newVendor2 = new Vendor("Vendor's Name2", "Vendor's description");
+            List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
             List<Vendor> result = Vendor.GetAll();
             CollectionAssert.AreEqual(newList, result);
         }
