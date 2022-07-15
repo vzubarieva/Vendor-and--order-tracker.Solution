@@ -59,6 +59,14 @@ namespace VAOT.Tests
             Assert.AreEqual(updatedVendorDescription, result);
         }
 
+        [TestMethod]
+        public void GetAll_ReturnsEmptyList_VendorList()
+        {
+            List<Vendor> newList = new List<Vendor> { };
+            List<Vendor> result = Vendor.GetAll();
+            CollectionAssert.AreEqual(newList, result);
+        }
+
 
 
 
