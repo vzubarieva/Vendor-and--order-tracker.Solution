@@ -16,23 +16,29 @@ namespace VAOT.Tests
         [TestMethod]
         public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
         {
-            Vendor newVendor = new Vendor(); //We pass in "test" as an argument here.
+            Vendor newVendor = new Vendor("Vendor's name"); //We pass in "test" as an argument here.
             Assert.AreEqual(typeof(Vendor), newVendor.GetType());
         }
-        //
-        //[TestMethod]
-        //public void GetDescription_ReturnsDescription_String()
-        //{
-        //  //Arrange
-        //  string description = "Walk the dog.";
-        //  Item newItem = new Item(description);
-        //
-        //  //Act
-        //  string result = newItem.Description;
-        //
-        //  //Assert
-        //  Assert.AreEqual(description, result);
-        //}
+
+        [TestMethod]
+        public void GetName_ReturnsName_String()
+        {
+            string name = "Vendor's Name";
+            Vendor newVendor = new Vendor(name);
+            string result = newVendor.Name;
+            Assert.AreEqual(name, result);
+        }
+
+        [TestMethod]
+        public void SetName_SetName_String()
+        {
+            string name = "Vendor's name";
+            Vendor newVendor = new Vendor(name);
+            string updatedName = "Vendor's name2";
+            newVendor.Name = updatedName;
+            string result = newVendor.Name;
+            Assert.AreEqual(updatedName, result);
+        }
 
 
 
