@@ -32,7 +32,6 @@ namespace VAOT.Tests
         [TestMethod]
         public void SetName_SetName_String()
         {
-            string name = "Vendor's name";
             Vendor newVendor = new Vendor("Vendor's Name", "Vendor's description");
             string updatedName = "Vendor's name2";
             newVendor.Name = updatedName;
@@ -48,6 +47,16 @@ namespace VAOT.Tests
             Vendor newVendor = new Vendor(name, vendorDescription);
             string result = newVendor.VendorDescription;
             Assert.AreEqual(vendorDescription, result);
+        }
+
+        [TestMethod]
+        public void SetVendorDescription_SetVendorDescription_String()
+        {
+            Vendor newVendor = new Vendor("Vendor's Name", "Vendor's description");
+            string updatedVendorDescription = "Vendor's description2";
+            newVendor.VendorDescription = updatedVendorDescription;
+            string result = newVendor.VendorDescription;
+            Assert.AreEqual(updatedVendorDescription, result);
         }
 
 
