@@ -18,11 +18,20 @@
 </head>
 
 <body>
-  <h1>Vendor List</h1>
-  <ul>
-    <li>@Model.Name, @Model.VendorDescription </li>
-  </ul>
+  @using VAOT.Models;
 
+  <h1>Vendor List</h1>
+  @if (Model.Count == 0)
+  {
+    <p>There are no vendors in the list.</p>
+  }
+  <ul>
+    @foreach (Vendor vendor in Model)
+    {
+      <li>"@vendor.Name", @vendor.VendorDescription</li>
+    }
+
+  </ul>
   <a href="/vendors/new">Add a new vendor.</a>
 </body>
 

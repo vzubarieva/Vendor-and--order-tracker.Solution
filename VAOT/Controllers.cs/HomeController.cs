@@ -1,31 +1,29 @@
 using Microsoft.AspNetCore.Mvc;
 using VAOT.Models;
+using System.Collections.Generic;
 
 namespace VAOT.Controllers
 {
     public class HomeController : Controller
     {
-        [Route("/")]
+        [HttpGet("/")]
         public ActionResult Index()
         {
-            Vendor starterVendor = new Vendor(
-                "Add new vendor to Vendor List",
-                "Vendor's description"
-            );
-            return View(starterVendor);
+            List<Vendor> allVendors = Vendor.GetAll();
+            return View(allVendors);
         }
 
-        [Route("/vendors/new")]
+        [HttpGet("/vendors/new")]
         public ActionResult CreateForm()
         {
             return View();
         }
 
-        [Route("/vendors")]
+        [HttpPost("/vendors")]
         public ActionResult Create(string name, string vendorDescription)
         {
-            Vendor myVendor = new Vendor("Vendor's name", "Vendor's description");
-            return View("Index", myVendor);
+            Vendor myVendor = new Vendor(name, vendorDescription);
+            return RedirectToAction("Index");
         }
 
 
