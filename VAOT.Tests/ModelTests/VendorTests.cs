@@ -78,13 +78,25 @@ namespace VAOT.Tests
         }
 
         [TestMethod]
-        public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
+        public void GetId_VendorsInstantiateWithAnIdAndGetterReturns_Int()
         {
             string name = "Vendor's Name";
             string vendorDescription = "Vendor's description";
             Vendor newVendor = new Vendor(name, vendorDescription);
             int result = newVendor.Id;
             Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void Find_ReturnsCorrectVendor_Vendor()
+        {
+            string name01 = "Vendor's name1";
+            string name02 = "Vendor's name2";
+            string vendorDescription = "Vendor's description";
+            Vendor newVendor1 = new Vendor(name01, vendorDescription);
+            Vendor newVendor2 = new Vendor(name02, vendorDescription);
+            Vendor result = Vendor.Find(2);
+            Assert.AreEqual(newVendor2, result);
         }
 
 
