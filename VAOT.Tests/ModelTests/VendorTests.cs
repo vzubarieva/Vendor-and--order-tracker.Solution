@@ -77,6 +77,16 @@ namespace VAOT.Tests
             CollectionAssert.AreEqual(newList, result);
         }
 
+        [TestMethod]
+        public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
+        {
+            string name = "Vendor's Name";
+            string vendorDescription = "Vendor's description";
+            Vendor newVendor = new Vendor(name, vendorDescription);
+            int result = newVendor.Id;
+            Assert.AreEqual(1, result);
+        }
+
 
 
 
