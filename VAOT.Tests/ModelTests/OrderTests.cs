@@ -6,12 +6,12 @@ using System;
 namespace VAOT.Tests
 {
     [TestClass]
-    public class OrderTests //: IDisposable
+    public class OrderTests : IDisposable
     {
-        // public void Dispose()
-        //{
-        //    Order.ClearAll();
-        // }
+        public void Dispose()
+        {
+            Order.ClearAll();
+        }
 
         [TestMethod]
         public void OrderConstructor_CreatesInstanceOfOrder_Order()
@@ -79,6 +79,14 @@ namespace VAOT.Tests
             newOrder.Date = updatedDate;
             string result = newOrder.Date;
             Assert.AreEqual(updatedDate, result);
+        }
+
+        [TestMethod]
+        public void GetId_ReturnId_Int()
+        {
+            Order newOrder = new Order("Order's title", "Order's description", 28.00, "2022-10-26");
+            int result = newOrder.Id;
+            Assert.AreEqual(1, newOrder.Id);
         }
     }
 }
