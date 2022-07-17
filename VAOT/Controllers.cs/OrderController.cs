@@ -14,14 +14,34 @@ namespace VAOT.Controllers
             return View(currentVendor);
         }
 
-        [HttpGet("/vendor/{Id}/order/new")]
-        public ActionResult New(int searchId)
+        [HttpGet("/vendors/{vendorId}/order/new")]
+        public ActionResult New(int vendorId)
         {
-            Vendor currentVendor = Vendor.Find(searchId);
+            Vendor currentVendor = Vendor.Find(vendorId);
             return View(currentVendor);
         }
 
-        [HttpGet("/vendor/{vendorId}/order/{orderId}")]
+        [HttpPost("/vendors/{vendorId}/order/new")]
+        public ActionResult Create(
+            int vendorId,
+            string title,
+            string orderDescription,
+            double price,
+            string date
+        )
+        {
+            Vendor currentVendor = Vendor.Find(vendorId);
+            Order newOrder = new Order(title, orderDescription, price, date);
+            currentVendor.AddOrder(newOrder);
+            Dictionary<string, object> model = new Dictionary<string, object>
+            {
+                { "vendor", currentVendor },
+                { "order", newOrder }
+            };
+            return View("Show", model);
+        }
+
+        [HttpGet("/vendors/{vendorId}/order/{orderId}")]
         public ActionResult Show(int vendorId, int orderId)
         {
             Order order = Order.Find(orderId);
