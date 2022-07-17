@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@using VAOT.Models;
+
+<h1>@Model.Name</h1>
+<h2>@Model.VendorDescription</h2>
+
+@if (@Model.Orders.Count == 0)
+{
+  <h4>@Model.Name has no current orders</h4>
+}
+
+@foreach (Order order in @Model.Orders)
+{
+  <h4><a href="/vendors/@Model.Id/order/@order.Id">@order.Title</a></h4>
+}
+
+<a href="/vendors/@Model.Id/order/new">Add an Order</a>
+<br>
+<a href="/vendors">Back to Vendor List</a>
