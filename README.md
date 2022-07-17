@@ -4,7 +4,7 @@
 
 ## Description
 
-MVC application that helps track the vendors that purchase some items from some store and the orders belonging to those vendors.It can create a new vendor to represent the cafe or another organization and add new orders.
+MVC application that helps track the vendors that purchase some items from some store and the orders belonging to those vendors. It can create a new vendor to represent the cafe or another organization and add new orders.
 
 ## Technologies Used
 
@@ -22,7 +22,7 @@ MVC application that helps track the vendors that purchase some items from some 
 - Run the command `dotnet restore` in the terminal opened to the directory
 - Run `dotnet build` to build the site
 - Then run the command `dotnet watch run` to start the live server in the browser
-- Please follow the buttons and links to create new vendors and orders amd view them.
+- Please follow the buttons and links to create new vendors and orders and view them.
 
 - If you want to test project, navigate to VAOT.Tests folder
 - Run the command `dotnet restore` in the terminal opened to the directory
