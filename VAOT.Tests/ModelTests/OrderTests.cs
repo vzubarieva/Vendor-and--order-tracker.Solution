@@ -88,5 +88,19 @@ namespace VAOT.Tests
             int result = newOrder.Id;
             Assert.AreEqual(1, newOrder.Id);
         }
+
+        [TestMethod]
+        public void GetAll_ReturnsAllOrders_OrdersList()
+        {
+            Order newOrder = new Order("Order's title", "Order's description", 28.00, "2022-10-26");
+            Order newOrder2 = new Order(
+                "Order's title2",
+                "Order's description2",
+                35.00,
+                "2022-10-28"
+            );
+            List<Order> allOrders = new List<Order> { newOrder, newOrder2 };
+            CollectionAssert.AreEqual(allOrders, Order.GetAll());
+        }
     }
 }
