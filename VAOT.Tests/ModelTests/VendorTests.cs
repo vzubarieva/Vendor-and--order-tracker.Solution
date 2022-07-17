@@ -99,6 +99,17 @@ namespace VAOT.Tests
             Assert.AreEqual(newVendor2, result);
         }
 
+        [TestMethod]
+        public void AddOrder_AddOrderToSpecificVendor_OrderList()
+        {
+            Vendor newVendor = new Vendor("Vendor's Name1", "Vendor's description");
+            Order newOrder = new Order("Order's title", "Order's description", 28.00, "2022-10-26");
+            List<Order> vendorOrders = new List<Order> { newOrder };
+            newVendor.AddOrder(newOrder);
+            CollectionAssert.AreEqual(vendorOrders, newVendor.Orders);
+        }
+
+
 
 
 
