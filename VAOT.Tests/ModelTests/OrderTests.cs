@@ -55,5 +55,30 @@ namespace VAOT.Tests
             string result = newOrder.OrderDescription;
             Assert.AreEqual(updatedOrderDescription, result);
         }
+
+        [TestMethod]
+        public void GetPrice_ReturnsPrice_Double()
+        {
+            Order newOrder = new Order("Order's title", "Order's description", 28.00, "2022-10-26");
+            Assert.AreEqual(28.00, newOrder.Price);
+        }
+
+        [TestMethod]
+        public void GetDate_ReturnsDate_String()
+        {
+            Order newOrder = new Order("Order's title", "Order's description", 28.00, "2022-10-26");
+            string result = newOrder.Date;
+            Assert.AreEqual("2022-10-26", newOrder.Date);
+        }
+
+        [TestMethod]
+        public void SetDate_SetDate_String()
+        {
+            Order newOrder = new Order("Order's title", "Order's description", 28.00, "2022-10-26");
+            string updatedDate = "2022-11-26";
+            newOrder.Date = updatedDate;
+            string result = newOrder.Date;
+            Assert.AreEqual(updatedDate, result);
+        }
     }
 }
